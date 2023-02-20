@@ -1,0 +1,391 @@
+<!-- /*
+* Template Name: Tour
+* Template Author: Untree.co
+* Tempalte URI: https://untree.co/
+* License: https://creativecommons.org/licenses/by/3.0/
+*/ -->
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="/favicon.png">
+
+    <meta name="description" content=""/>
+    <meta name="keywords" content="bootstrap, bootstrap4"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Source+Serif+Pro:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/fonts/flaticon/font/flaticon.css">
+    <link rel="stylesheet" href="/css/daterangepicker.css">
+    <link rel="stylesheet" href="/css/aos.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/travel-schedule.css">
+
+
+    <link rel="stylesheet" type="text/css" href="/evo-calendar/css/evo-calendar.css"/>
+
+    <title>홍병장이 주도하는 여행</title>
+</head>
+
+<body>
+
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav">
+    <div class="container">
+        <div class="site-navigation">
+            <a href="index.html" class="logo m-0">MBTI TOUR </a>
+
+            <ul class="js-clone-nav d-none d-lg-inline-block text-left site-menu float-right">
+                <li><a href="/src/main/resources/staticin/resources/static">Home</a></li>
+                <li class="active"><a href="/travel-schedule">Travel Schedule</a></li>
+                <li><a href="/services.html">Notice</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/contact.html">Contact Us</a></li>
+            </ul>
+
+            <a href="#"
+               class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-none light"
+               data-toggle="collapse" data-target="#main-navbar">
+                <span></span>
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+<div class="hero hero-custom hero-inner-custom">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mx-auto text-center">
+                <div class="intro-wrap">
+                    <h1 class="mb-0">Travel Schedule</h1>
+                    <p class="text-white g-font">여행 일정을 확인하고 참여 신청을 해주세요!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="untree_co-section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-8 col-md-8 col-lg-8">
+                <div id="calendar"></div>
+            </div>
+            <div class="col-4 col-md-4 col-lg-4">
+                <div class="card h-100 g-font">
+                    <div class="card-header bg-header-color">
+                        <b class="text-white">여행 예정 일정</b>
+                    </div>
+                    <ul class="list-group list-group-flush itinerary-scroll">
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Detail</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                        <li class="list-group-item">
+                            <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>일정</th>
+                                    <td colspan="3">2023-02-25 ~ 2023-02-26</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td><b>여행명</b></td>
+                                    <td>수원 여행</td>
+                                    <td><b>인원</b></td>
+                                    <td>14</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <p><a href="#" class="btn btn-primary px-2 py-1 float-right">Start</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="untree_co-section">
+    <div class="container">
+        <div class="row mb-5 justify-content-center">
+            <div class="col-lg-6 text-center">
+                <h2 class="section-title text-center mb-3">Information</h2>
+                <p class="g-font">여행 일정은 홍병장과 참여자의 일정에 따라 변경 될 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="site-footer">
+    <div class="inner first">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget">
+                        <h3 class="heading">About Tour</h3>
+                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
+                            there live the blind texts.</p>
+                    </div>
+                    <div class="widget">
+                        <ul class="list-unstyled social">
+                            <li><a href="#"><span class="icon-twitter"></span></a></li>
+                            <li><a href="#"><span class="icon-instagram"></span></a></li>
+                            <li><a href="#"><span class="icon-facebook"></span></a></li>
+                            <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                            <li><a href="#"><span class="icon-dribbble"></span></a></li>
+                            <li><a href="#"><span class="icon-pinterest"></span></a></li>
+                            <li><a href="#"><span class="icon-apple"></span></a></li>
+                            <li><a href="#"><span class="icon-google"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2 pl-lg-5">
+                    <div class="widget">
+                        <h3 class="heading">Pages</h3>
+                        <ul class="links list-unstyled">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-2">
+                    <div class="widget">
+                        <h3 class="heading">Resources</h3>
+                        <ul class="links list-unstyled">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="widget">
+                        <h3 class="heading">Contact</h3>
+                        <ul class="list-unstyled quick-info links">
+                            <li class="email"><a href="#">mail@example.com</a></li>
+                            <li class="phone"><a href="#">+1 222 212 3819</a></li>
+                            <li class="address"><a href="#">43 Raymouth Rd. Baltemoer, London 3910</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="inner dark">
+        <div class="container">
+            <div class="row text-center">
+                <div class="col-md-8 mb-3 mb-md-0 mx-auto">
+                    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        . All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co"
+                                                                                class="link-highlight">Untree.co</a>
+                        <!-- License information: https://untree.co/license/ --> Distributed By <a
+                                href="https://themewagon.com" target="_blank">ThemeWagon</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="overlayer"></div>
+<div class="loader">
+    <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/moment.min.js"></script>
+<script src="js/daterangepicker.js"></script>
+
+<script src="js/typed.js"></script>
+
+<script src="js/custom.js"></script>
+<script src="/evo-calendar/js/evo-calendar.js"></script>
+
+<script>
+    $(function () {
+        const settingValue = {
+            todayHighlight: true,
+            eventDisplayDefault: false,
+            eventListToggler: false,
+            calendarEvents: [
+                {
+                    id: "4hducye", // Event's id (required, for removing event)
+                    name: "Today's Event", // Name of event
+                    description: "Lorem ipsum dolor sit amet..", // Description of event (optional)
+                    date: new Date(), // Date of event
+                    type: "holiday", // Type of event (event|holiday|birthday)
+                    color: "#63d867", // Event custom color (optional)
+                    everyYear: true // Event is every year (optional)
+                },
+                {
+                    id: "5hducye", // Event's id (required, for removing event)
+                    name: "Today's Event", // Name of event
+                    description: "Lorem ipsum dolor sit amet..", // Description of event (optional)
+                    date: new Date(), // Date of event
+                    type: "holiday", // Type of event (event|holiday|birthday)
+                    color: "#63d867", // Event custom color (optional)
+                    everyYear: true // Event is every year (optional)
+                },
+                {
+                    name: "수원 여행",
+                    badge: "02/13 - 02/15", // Event badge (optional)
+                    date: ["February/13/2023", "February/15/2023"], // Date range
+                    description: "행궁동을 가보자", // Event description (optional)
+                    type: "event",
+                    color: "#63d867" // Event custom color (optional)
+                }
+            ]
+        }
+
+        $('#calendar').evoCalendar(
+            settingValue
+        )
+    })
+</script>
+</body>
+
+</html>

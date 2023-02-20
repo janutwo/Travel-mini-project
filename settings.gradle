@@ -1,0 +1,3 @@
+rootProject.name = 'travel'
+include ('core-module','admin-module','user-module')
+
