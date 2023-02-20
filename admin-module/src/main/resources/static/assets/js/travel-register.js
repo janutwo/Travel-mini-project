@@ -62,6 +62,7 @@ function completeTravelInfo() {
             data: data,
             success: function (res) {
                 console.log(res.status)
+                location.replace("/");
             },
             err: function (err) {
                 console.log("err:", err)

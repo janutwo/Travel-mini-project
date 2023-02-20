@@ -4,10 +4,7 @@ package com.people.travel.admin.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.people.travel.admin.dto.TravelRequestDto;
-import com.people.travel.core.service.FileUploadService;
-import org.apache.commons.fileupload.FileItem;
-import org.apache.commons.fileupload.disk.DiskFileItem;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,14 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
-
 import javax.transaction.Transactional;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -43,6 +37,7 @@ class PagesControllerTest {
     @Test
     @DisplayName("여행 등록")
     @Transactional
+    @Rollback(value = false)
     void register() throws Exception {
 
         //given

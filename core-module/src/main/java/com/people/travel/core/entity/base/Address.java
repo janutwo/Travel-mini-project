@@ -21,4 +21,7 @@ public class Address {
 
     private String mapLink;
 
+    public String fullAddress() {
+        return this.address + this.extraAddress + " " + this.detailAddress;
+    }
 }
