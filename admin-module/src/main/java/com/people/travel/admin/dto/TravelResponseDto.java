@@ -12,22 +12,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class TravelResponseDto {
 
     @Getter
-    @NoArgsConstructor
     public static class ScheduledTravelList{
         int totalPage = 0;
-        List<ScheduledTravel> list = new ArrayList<>();
+        List<ScheduledTravel> list;
 
         public ScheduledTravelList(int totalPage, List<ScheduledTravel> list) {
             this.totalPage = totalPage;
-            this.list = list;
+            this.list = list != null ? list : new ArrayList<>();
         }
     }
 
     @Getter
-    @NoArgsConstructor
     @ToString
     public static class ScheduledTravel{
         String dateDuration;
@@ -42,7 +41,6 @@ public class TravelResponseDto {
     }
     @Getter
     @ToString
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @Builder(access = AccessLevel.PRIVATE)
     public static class TravelDetail{
@@ -70,10 +68,10 @@ public class TravelResponseDto {
             List<TravelDoc> docs = new ArrayList<>();
 
             for (Accommodation accommodation : travel.getAccommodations()) {
-                details.add(new AccommodationDetail().entityToDto(accommodation));
+                details.add(AccommodationDetail.entityToDto(accommodation));
             }
             for (TravelDocument doc : travel.getDocs()) {
-                docs.add(new TravelDoc().entityToDto(doc));
+                docs.add(TravelDoc.entityToDto(doc));
             }
 
             return TravelDetail.builder()
@@ -92,7 +90,6 @@ public class TravelResponseDto {
 
     @Getter
     @ToString
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @AllArgsConstructor(access = AccessLevel.PRIVATE)
     @Builder(access = AccessLevel.PRIVATE)
     public static class AccommodationDetail{
@@ -108,7 +105,7 @@ public class TravelResponseDto {
 
         Coordinate coordinate;
 
-        public AccommodationDetail entityToDto(Accommodation accommodation){
+        public static AccommodationDetail entityToDto(Accommodation accommodation){
             return AccommodationDetail.builder()
                     .id(accommodation.getId())
                     .accDate(accommodation.getAccDate())
@@ -124,7 +121,6 @@ public class TravelResponseDto {
 
     @Getter
     @ToString
-    @NoArgsConstructor(access = AccessLevel.PROTECTED)
     public static class TravelDoc{
 
         String id;
@@ -137,7 +133,7 @@ public class TravelResponseDto {
             this.filePath = filePath;
         }
 
-        public TravelDoc entityToDto(TravelDocument doc) {
+        public static TravelDoc entityToDto(TravelDocument doc) {
             return new TravelDoc(doc.getFileName(), doc.getDocumentUrl());
         }
     }

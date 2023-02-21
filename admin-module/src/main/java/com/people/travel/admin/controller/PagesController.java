@@ -2,12 +2,11 @@ package com.people.travel.admin.controller;
 
 import com.people.travel.admin.dto.TravelRequestDto;
 import com.people.travel.admin.dto.TravelResponseDto;
-import com.people.travel.admin.service.FindTravelService;
+import com.people.travel.admin.service.AdminFindTravelService;
 import com.people.travel.admin.service.TraverRegisterService;
-import com.people.travel.core.entity.Travel;
+import com.people.travel.core.dto.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -18,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Arrays;
 import java.util.List;
 
 @Log4j2
@@ -26,12 +24,12 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PagesController {
     private final TraverRegisterService traverRegisterService;
-    private final FindTravelService findTravelService;
+    private final AdminFindTravelService findTravelService;
 
     @GetMapping("/")
     public String home(@RequestParam(defaultValue = "0") int page, Model model) {
         PageRequest pageRequest = PageRequest.of(page, 10);
-        TravelResponseDto.ScheduledTravelList allDepartTravel = findTravelService.findAllDepartTravel(pageRequest);
+        TravelResponseDto.ScheduledTravelList allDepartTravel = findTravelService.findAllDepartTravelWithPaging(pageRequest);
         model.addAttribute("totalPage", allDepartTravel.getTotalPage());
         model.addAttribute("travelList", allDepartTravel.getList());
         return "index";

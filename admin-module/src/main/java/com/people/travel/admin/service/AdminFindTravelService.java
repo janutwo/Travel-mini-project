@@ -1,12 +1,8 @@
 package com.people.travel.admin.service;
 
 import com.people.travel.admin.dto.TravelResponseDto;
-import com.people.travel.admin.repository.AccommodationRepository;
-import com.people.travel.admin.repository.TravelDocumentRepository;
-import com.people.travel.admin.repository.TravelRepository;
-import com.people.travel.core.entity.Accommodation;
+import com.people.travel.admin.repository.AdminTravelRepository;
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.entity.TravelDocument;
 import com.people.travel.core.entity.TravelStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -15,6 +11,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -23,12 +20,12 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class FindTravelService {
+public class AdminFindTravelService {
 
-    private final TravelRepository travelRepository;
+    private final AdminTravelRepository travelRepository;
 
 
-    public TravelResponseDto.ScheduledTravelList findAllDepartTravel(PageRequest pageRequest) {
+    public TravelResponseDto.ScheduledTravelList findAllDepartTravelWithPaging  (PageRequest pageRequest) {
         Page<Travel> allTravel = travelRepository.findAllTravel(TravelStatus.DEPART, pageRequest);
         List<TravelResponseDto.ScheduledTravel> list = new ArrayList<>();
 
@@ -43,10 +40,15 @@ public class FindTravelService {
         return new TravelResponseDto.ScheduledTravelList(allTravel.getTotalPages(), list);
     }
 
-    //
-    public TravelResponseDto.TravelDetail findTravelDetail(Long id) {
+
+    public TravelResponseDto.TravelDetail findTravelDetail(Long id){
         Optional<Travel> byId = travelRepository.findTravelByIdWithAccommodations(id);
         Travel travel = byId.orElseThrow(()-> new RuntimeException("해당 데이터가 없습니다."));
         return TravelResponseDto.TravelDetail.entityToDto(travel);
+    }
+
+
+    public List<TravelResponseDto.ScheduledTravel> findTravelBetweenCurrentMonth(LocalDate selectedDate) {
+        return null;
     }
 }

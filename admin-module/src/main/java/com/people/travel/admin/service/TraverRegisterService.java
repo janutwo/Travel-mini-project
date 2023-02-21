@@ -1,9 +1,9 @@
 package com.people.travel.admin.service;
 
 import com.people.travel.admin.dto.TravelRequestDto;
-import com.people.travel.admin.repository.AccommodationRepository;
-import com.people.travel.admin.repository.TravelDocumentRepository;
-import com.people.travel.admin.repository.TravelRepository;
+import com.people.travel.core.repository.AccommodationRepository;
+import com.people.travel.core.repository.TravelDocumentRepository;
+import com.people.travel.core.repository.TravelRepository;
 import com.people.travel.core.entity.Accommodation;
 import com.people.travel.core.entity.Travel;
 import com.people.travel.core.entity.TravelDocument;

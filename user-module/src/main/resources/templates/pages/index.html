@@ -105,7 +105,7 @@
         <div class="row align-items-stretch">
             <div class="col-lg-12">
                 <div class="h-100">
-                    <div id="calendar"></div>
+                    <div id="calendar" ></div>
                 </div>
             </div>
 
@@ -119,7 +119,7 @@
             <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="text-center">
                     <h2 class="section-title text-center">Next Travel D-day </h2><br>
-                    <span style="font-size: 5.5rem">2023-02-25</span>
+                    <span style="font-size: 5.5rem" th:text="${soonTravel}">-</span>
                 </div>
 
             </div>
@@ -345,43 +345,40 @@
 <script src="/js/custom.js"></script>
 <script src="/evo-calendar/js/evo-calendar.js"></script>
 
-<script>
+<script th:inline="javascript">
     $(function () {
-        const settingValue = {
-            todayHighlight: true,
-            calendarEvents: [
-                {
-                    id: "4hducye", // Event's id (required, for removing event)
-                    name: "Today's Event", // Name of event
-                    description: "Lorem ipsum dolor sit amet..", // Description of event (optional)
-                    date: new Date(), // Date of event
-                    type: "holiday", // Type of event (event|holiday|birthday)
-                    color: "#63d867", // Event custom color (optional)
-                    everyYear: true // Event is every year (optional)
-                },
-                {
-                    id: "5hducye", // Event's id (required, for removing event)
-                    name: "Today's Event", // Name of event
-                    description: "Lorem ipsum dolor sit amet..", // Description of event (optional)
-                    date: new Date(), // Date of event
-                    type: "holiday", // Type of event (event|holiday|birthday)
-                    color: "#63d867", // Event custom color (optional)
-                    everyYear: true // Event is every year (optional)
-                },
-                {
-                    name: "수원 여행",
-                    badge: "02/13 - 02/15", // Event badge (optional)
-                    date: ["February/13/2023", "February/15/2023"], // Date range
-                    description: "행궁동을 가보자", // Event description (optional)
-                    type: "event",
-                    color: "#63d867" // Event custom color (optional)
-                }
-            ]
-        }
+        const eventList = [];
+        [[${calendarEvents}]].forEach(data=>{
+            console.log(data)
+            eventList.push({
+                id: data.id, // Event's id (required, for removing event)
+                name: data.travelName, // Name of event
+                description: data.desc, // Description of event (optional)
+                badge: data.dateDuration, // Event badge (optional)
+                date: [data.startDate, data.endDate], // Date of event
+                type: "event", // Type of event (event|holiday|birthday)
+                color: "#63d867", // Event custom color (optional)
+                everyYear: true // Event is every year (optional)
+            });
 
-        $('#calendar').evoCalendar(
+        })
+        const settingValue = {
+            language:"ko",
+            todayHighlight: true,
+            calendarEvents: eventList
+        }
+        const calendar = $('#calendar')
+        calendar.evoCalendar(
             settingValue
         )
+        console.log(calendar.data("events"))
+        calendar.on('selectMonth', function(event, activeMonth, monthIndex) {
+            console.log(calendar.evoCalendar('getActiveDate'));
+        });
+        calendar.on('selectYear', function(event, activeYear) {
+            console.log(activeYear)
+            console.log(calendar.evoCalendar('getActiveDate'));
+        });
 
         var slides = $('.slides'),
             images = slides.find('img');

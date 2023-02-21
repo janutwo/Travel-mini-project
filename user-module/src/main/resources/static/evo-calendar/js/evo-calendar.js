@@ -62,6 +62,19 @@
                         closeSidebarText: "Close sidebar",
                         closeEventListText: "Close event list"
                     },
+                    ko: {
+                        days: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                        daysShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                        daysMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+                        months: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                        monthsShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                        noEventForToday: "No event for today.. so take a rest! :)",
+                        noEventForThisDay: "No event for this day.. so take a rest! :)",
+                        previousYearText: "Previous year",
+                        nextYearText: "Next year",
+                        closeSidebarText: "Close sidebar",
+                        closeEventListText: "Close event list"
+                    },
                     es: {
                         days: ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"],
                         daysShort: ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"],
