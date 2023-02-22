@@ -21,4 +21,7 @@ public class TravelImage extends TimeStamped {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "TRAVEL_ID", nullable = false)
     private Travel travel;
+
+    private boolean isTitle = false;
+
 }

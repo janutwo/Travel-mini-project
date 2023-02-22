@@ -4,7 +4,6 @@ import com.people.travel.admin.dto.TravelRequestDto;
 import com.people.travel.admin.dto.TravelResponseDto;
 import com.people.travel.admin.service.AdminFindTravelService;
 import com.people.travel.admin.service.TraverRegisterService;
-import com.people.travel.core.dto.ResponseResult;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.PageRequest;
