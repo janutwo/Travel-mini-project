@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.concurrent.Executors;
 
 @Log4j2
 @Component
@@ -59,7 +60,7 @@ public class FileUploadService {
 
         List<File> convertToFiles = new ArrayList<>();
         List<String> s3Urls = new ArrayList<>();
-        TransferManager transferManager = TransferManagerBuilder.standard().withS3Client(amazonS3Client).build();
+        TransferManager transferManager = TransferManagerBuilder.standard().withExecutorFactory(()-> Executors.newFixedThreadPool(2)).withS3Client(amazonS3Client).build();
 
         for (MultipartFile multipartFile : files) {
             byte[] data = multipartFile.getBytes();
