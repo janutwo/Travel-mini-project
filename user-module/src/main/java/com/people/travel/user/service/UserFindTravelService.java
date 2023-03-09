@@ -3,8 +3,7 @@ package com.people.travel.user.service;
 
 
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.repository.TravelRepository;
-import com.people.travel.user.dto.ResponseDto;
+import com.people.travel.user.dto.TravelResponseDto;
 import com.people.travel.user.repository.UserTravelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -24,19 +23,35 @@ public class UserFindTravelService  {
 
     private final UserTravelRepository travelRepository;
 
-    public List<ResponseDto.TravelSchedule> findMonthTravelSchedule(LocalDateTime month){
+    public List<TravelResponseDto.TravelSchedule> findMonthTravelSchedule(LocalDateTime month){
+
+        //1일
         LocalDateTime start = month.with(TemporalAdjusters.firstDayOfMonth());
+
+        //달의 마지막 일 30, 31
         LocalDateTime end = month.with(TemporalAdjusters.lastDayOfMonth());
 
         List<Travel> allByModifiedDateBetween = travelRepository.findAllByModifiedDateBetween(start, end);
 
-        List<ResponseDto.TravelSchedule> schedules = new ArrayList<>();
+        List<TravelResponseDto.TravelSchedule> schedules = new ArrayList<>();
         for (Travel travel : allByModifiedDateBetween) {
-            schedules.add(ResponseDto.TravelSchedule.entityToDto(travel));
+            schedules.add(TravelResponseDto.TravelSchedule.entityToDto(travel));
+            log.info("{}",travel.toString());
         }
         return schedules;
     }
 
     public LocalDate soonScheduledTravel(){
-        return travelRepository.findAllByCurrentDateAfter(PageRequest.of(0, 1)).get(0);
+
+        LocalDate soonDate;
+        PageRequest limit = PageRequest.of(0, 1);
+
+        List<LocalDate> allByCurrentDateAfter = travelRepository.findAllByCurrentDateAfter(limit);
+
+        if(allByCurrentDateAfter.size() == 0){
+           soonDate = travelRepository.findRecentlyTravel(limit).get(0);
+       }else{
+           soonDate = allByCurrentDateAfter.get(0);
+       }
+        return soonDate;
     }}

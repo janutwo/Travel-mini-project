@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface UserTravelRepository extends TravelRepository {
 
-    @Query("select t.startDate from Travel t where t.disabled= false and(current_date < t.startDate) order by t.startDate")
+    @Query("select t.startDate from Travel t where t.disabled= false and(current_date < t.startDate) order by t.startDate desc")
     List<LocalDate> findAllByCurrentDateAfter(Pageable pageable);
+
+    @Query("select t.startDate from Travel t where t.disabled= false and(t.startDate < current_date) order by t.startDate desc")
+    List<LocalDate> findRecentlyTravel(Pageable pageable);
 }

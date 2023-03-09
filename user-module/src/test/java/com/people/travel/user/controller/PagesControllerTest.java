@@ -1,28 +1,27 @@
-package com.people.travel.admin.controller;
-
+package com.people.travel.user.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.people.travel.admin.dto.TravelRequestDto;
-
-
+import com.people.travel.user.dto.TravelRequestDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.web.servlet.MockMvc;
+
 import javax.transaction.Transactional;
-import java.io.*;
+import java.io.FileInputStream;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -34,10 +33,11 @@ class PagesControllerTest {
     @Autowired
     MockMvc mvc;
 
+
+
     @Test
     @DisplayName("여행 등록")
     @Transactional
-    @Rollback(value = false)
     void register() throws Exception {
 
         //given
@@ -83,10 +83,7 @@ class PagesControllerTest {
                         .file(travelJSON)
                         .file(accJSON)
                 )
-
                 .andExpect(status().isOk());
 
-
     }
-
 }

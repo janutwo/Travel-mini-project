@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200&display=swap');
+
+
+.mt-100 {
+    margin-top: 100px
+}
+
+.cus-datepicker[readonly] {
+    background-color: whitesmoke;
+    opacity: 1;
+    color: black;
+    border: 1px solid  whitesmoke;
+}
+
+.pro-button {
+    background-color: #f44336;
+    border-color: #f44336
+}
+
+.pro-button:focus {
+    outline: none !important;
+    background-color: #f44336;
+    border-color: #f44336;
+    box-shadow: 0 0 0 0.2rem rgb(255, 255, 255) !important
+}
+
+.pro-button:active {
+    outline: none !important;
+    background-color: #f44336 !important;
+    border-color: #f44336 !important
+}
+
+.pro-button:hover {
+    background-color: #d8271a;
+    border-color: #d8271a
+}
+.date-row label{
+    color: whitesmoke;
+}
+label {
+    font-weight: 800
+}
