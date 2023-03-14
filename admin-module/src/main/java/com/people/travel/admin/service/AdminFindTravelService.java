@@ -3,7 +3,7 @@ package com.people.travel.admin.service;
 import com.people.travel.admin.dto.TravelResponseDto;
 import com.people.travel.admin.repository.AdminTravelRepository;
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.entity.TravelStatus;
+import com.people.travel.core.entity.enums.TravelStatus;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;

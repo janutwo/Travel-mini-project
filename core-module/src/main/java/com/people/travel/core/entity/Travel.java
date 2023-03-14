@@ -1,6 +1,7 @@
 package com.people.travel.core.entity;
 
 import com.people.travel.core.entity.base.TimeStamped;
+import com.people.travel.core.entity.enums.TravelStatus;
 import lombok.*;
 import org.hibernate.annotations.BatchSize;
 

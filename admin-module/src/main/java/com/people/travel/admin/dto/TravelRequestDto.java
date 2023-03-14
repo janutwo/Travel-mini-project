@@ -2,7 +2,7 @@ package com.people.travel.admin.dto;
 
 import com.people.travel.core.entity.Accommodation;
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.entity.TravelStatus;
+import com.people.travel.core.entity.enums.TravelStatus;
 import com.people.travel.core.entity.base.Address;
 import com.people.travel.core.entity.base.Coordinate;
 import lombok.Getter;

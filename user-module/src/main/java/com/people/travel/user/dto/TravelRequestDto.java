@@ -2,10 +2,9 @@ package com.people.travel.user.dto;
 
 import com.people.travel.core.entity.Accommodation;
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.entity.TravelStatus;
+import com.people.travel.core.entity.enums.TravelStatus;
 import com.people.travel.core.entity.base.Address;
 import com.people.travel.core.entity.base.Coordinate;
-import com.people.travel.user.util.Util;
 import lombok.*;
 
 import java.time.LocalDate;

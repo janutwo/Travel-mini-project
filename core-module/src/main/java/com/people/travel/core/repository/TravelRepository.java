@@ -1,14 +1,13 @@
 package com.people.travel.core.repository;
 
 import com.people.travel.core.entity.Travel;
-import com.people.travel.core.entity.TravelStatus;
+import com.people.travel.core.entity.enums.TravelStatus;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 

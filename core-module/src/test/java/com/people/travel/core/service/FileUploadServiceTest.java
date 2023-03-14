@@ -18,11 +18,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@SpringBootTest(classes = {FileUploadService.class, S3Config.class})
+@SpringBootTest(classes = {S3FileUploadServiceImp.class, S3Config.class})
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class FileUploadServiceTest {
     @Autowired
-    private FileUploadService fileUploadService;
+    S3FileUploadService s3FileUploadService;
 
     MultipartFile multipartFile;
     List<MultipartFile> multipartFileList;
@@ -57,7 +57,7 @@ class FileUploadServiceTest {
         stopWatch.start();
         for (MultipartFile file : multipartFileList) {
             //when
-            fileUploadService.fileUpload("test2", file);
+            s3FileUploadService.singleFileUpload("test2", file);
         }
         stopWatch.stop();
         System.out.println(String.format("코드 실행 시간: %20dms", stopWatch.getTotalTimeMillis()));
@@ -69,7 +69,7 @@ class FileUploadServiceTest {
     void multipleUpload() throws IOException {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
-        List<String> multi_test2 = fileUploadService.multipleFileUpload("multi_test3", multipartFileList);
+        List<String> multi_test2 = s3FileUploadService.multipleFileUpload("multi_test3", multipartFileList);
         Assertions.assertThat(multi_test2.size()).isEqualTo(4);
         stopWatch.stop();
         System.out.println(String.format("코드 실행 시간: %20dms", stopWatch.getTotalTimeMillis()));
