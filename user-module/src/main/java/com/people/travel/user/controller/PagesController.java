@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -25,9 +26,13 @@ public class PagesController {
     private final UserFindTravelService findService;
     private final TraverRegisterService traverRegisterService;
     @GetMapping("/")
-    public String home(Model model){
+    public String home(Model model, Principal principal){
         model.addAttribute("calendarEvents", findService.findMonthTravelSchedule(LocalDateTime.now()));
         model.addAttribute("soonTravel", findService.soonScheduledTravel());
+
+        if(principal == null){
+            model.addAttribute("require_login", true);
+        }
         return "pages/index";
     }
 

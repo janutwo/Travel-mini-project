@@ -1,3 +1,4 @@
 dependencies {
     implementation project(':core-module')
+    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }

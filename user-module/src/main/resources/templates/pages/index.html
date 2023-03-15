@@ -5,7 +5,7 @@
 * License: https://creativecommons.org/licenses/by/3.0/
 */ -->
 <!doctype html>
-<html lang="ko">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="ko">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -56,7 +56,10 @@
                 <li><a href="/travel-schedule">Travel Schedule</a></li>
                 <li><a href="/services.html">Notice</a></li>
                 <li><a href="/templates/pages/travel-register.html">About</a></li>
-                <li><a href="/contact.html">Contact Us</a></li>
+                <li>
+                    <button sec:authorize="isAnonymous()" type="button" class="btn btn-dark py-1" data-toggle="modal" data-target="#loginModal">Login</button>
+                    <a sec:authorize="isAuthenticated()" type="button" class="btn btn-dark py-1" href="/logout">Logout</a>
+                </li>
             </ul>
 
             <a href="#"
@@ -261,7 +264,8 @@
         <span class="sr-only">Loading...</span>
     </div>
 </div>
-
+<!--Modal-->
+<div th:replace="~{/pages/modal/sign-in}"></div>
 <script src="/js/core/jquery-3.4.1.min.js"></script>
 <script src="/js/core/popper.min.js"></script>
 <script src="/js/core/bootstrap.min.js"></script>
@@ -280,6 +284,11 @@
 
 <script th:inline="javascript">
     $(function () {
+        const loginCheck = [[${require_login}]];
+        console.log(loginCheck)
+        if(loginCheck){
+            alert("로그인을 해주세요!");
+        }
         const eventList = [];
         [[${calendarEvents}]].forEach(data=>{
             console.log(data)

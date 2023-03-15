@@ -24,16 +24,21 @@ public class User extends TimeStamped {
 
     @Column(unique = true, nullable = false)
     private String LoginId;
+
     @Column(nullable = false)
     private String password;
+
     @Column(nullable = false)
     private String realName;
+
     private String phoneNum;
+
     @Column(nullable = false)
     private String email;
 
     @Embedded
     Address address;
+
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     Mbti mbti;
